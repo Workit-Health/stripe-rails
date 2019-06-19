@@ -17,7 +17,7 @@ module Stripe
       if Object.const_defined?('Stripe::Webhook') && sig_header && endpoint_secret
         event = ::Stripe::Webhook.construct_event(body, sig_header, endpoint_secret)
       else
-        event = Stripe::Event.retrieve(id)
+        event = ::Stripe::Event.retrieve(id)
       end
 
       yield event
